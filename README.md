@@ -172,7 +172,7 @@ This stepwise protocol results in a summary statistic file that has a name start
 6) ALT: Allele coded as 1
 7) ibd0: Number of sibling pairs underlying the ib0mean computations
 8) ib0mean: Allele frequency among sibling pairs sharing the SNP IBD0
-9) ib0meanvar: Variance of the mean genotype per sibling pair among the sibling pairs sharingi the SNP IBD0
+9) ib0meanvar: Variance of the allele frequency per sibling pair among the sibling pairs sharing the SNP IBD0
 10) ibd1n: Number of sibling pairs underlying the ib1nmean computations
 11) ib1nmean: Allele frequency for the non-shared alleles among the sibling pairs sharing the SNP IBD1
 12) ibd1s: Number of sibling pairs underlying the ib1smean computations (should be the same as ibd1n).
@@ -180,7 +180,7 @@ This stepwise protocol results in a summary statistic file that has a name start
 14) ib1diffvar: Variance of the differene between the shared allele and the average non-shared allele per pair.
 15) ibd2: Number of sibling pairs underlying the ib2mean computations
 16) ib2mean: Allele frequency among sibling pairs sharing the SNP IBD2
-17) ib2meanvar: Variance of the mean genotype per sibling pairs among the sibling pairs sharing the SNP IBD2
+17) ib2meanvar: Variance of the allele frequency per sibling pair among the sibling pairs sharing the SNP IBD2
 
 # Parent-offspring pairs: Stepwise protocol
 Here it is shown how the transmitted and non-transmitted allele frequencies are computed for parent-offspring pairs.
