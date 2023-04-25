@@ -47,6 +47,7 @@ alt=Gib['ALT']
 
 Gib=Gib[pairs]
 
+#Count the non-na pairs per SNP
 ibsnp=Gib.count(axis=1)
 
 Gib['SNP']=snp
@@ -54,9 +55,11 @@ Gib['REF']=ref
 Gib['ALT']=alt
 Gib['ibd2']=ibsnp*0.5
 
-#Now aggregate the sib pairs and take the mean and then compute the variance
+#Aggregate the alleles per sib pair
 Gib1=np.add(Gib[pairs1A],Gib[pairs1B])
+#Want to have information about the allele frequency per pair
 Gib1=Gib1*(0.25)
+#Compute the variance
 ib2meanvar=Gib1.var(axis=1)
 Gib['ib2meanvar']=ib2meanvar
 
