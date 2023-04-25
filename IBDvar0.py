@@ -54,9 +54,11 @@ Gib['REF']=ref
 Gib['ALT']=alt
 Gib['ibd0']=ibsnp*0.5
 
-#Aggregate the siblings per pair and then compute the variance
+#Aggregate the alleles of siblings per pair
 Gib1=np.add(Gib[pairs1A],Gib[pairs1B])
+#Want to have information about the allele frequency per pair
 Gib1=Gib1*(0.25)
+#Compute the variance per SNP
 ib0meanvar=Gib1.var(axis=1)
 Gib['ib0meanvar']=ib0meanvar
 
