@@ -53,6 +53,7 @@ Gib['SNP']=snp
 Gib['REF']=ref
 Gib['ALT']=alt
 Gib['ibd0']=ibsnp*0.5
+#Multiply with 0.5 as ibmean gives information about genotype frequency but we want information about allele frequency
 Gib['ib0mean']=ibmean*0.5
 
 ib=Gib.loc[:,['SNP','REF','ALT','ibd0','ib0mean']]
