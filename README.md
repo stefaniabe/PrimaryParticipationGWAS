@@ -42,6 +42,7 @@ This file should be a tab seperated and have the following header:
 fid ID1 ID2
 ```
 fid stands for family id and ID1 and ID2 are the unique personal identifiers for the two siblings (one row per pair).
+It should also be noted that the variances computed in step 4 in the sibling protocol assume that the shared versus not-shared frequency differences of each pair are independent of each other and that for every SNP, the allele frequencies computed for individual sibling pairs, whether IBD0 or IBD2 pairs are independent of each other. In the paper, we chose the two first participating siblings in sib-ships that were larger than two, and hence the same individual was only observed once in each pair.
 
 5) Minor allele frequency (MAF) files containing information about MAF computed in the group of the sibling pairs in file 4 for the SNPs that are in the vcf and bim files. These should be tab separated, chromsome specific files named chr*.frq with the following header:
 ```
@@ -56,7 +57,7 @@ This file should be tab separated, and have the following header:
 ```
 fid ID1 ID2
 ```
-fid stands for family id. ID1 is the identifier for the offspring and ID2 is the identifier for the parent.
+fid stands for family id. ID1 is the identifier for the offspring and ID2 is the identifier for the parent. It should be noted that the variances computed in step 3 in the parent-offspring protocol assume that the transmitted versus non-transmitted frequency differences of each pair are independent of each other. In the paper, we chose to include parent-offspring pairs for which the offspring did not have a participating sibling, and hence the same individual was only observed once among the pairs.
 
 7) MAF files containing information about MAF computed in the group of the parents (ID2 in file 6) for the SNPs that are in the vcf files and bim files. These should be tab separated, chromsome specific files named chr*.frq with the following header:
 ```
