@@ -140,11 +140,11 @@ The scripts requires the following 5 arguments:
 
 Example:
 ```
-python IBDaf0.py --chr 22 --trim 0 --ibdmatrix "ibdmatrixpath" " --siblings pairstoincludepath" --out "ibdfreqpath"
+python IBDaf0.py --chr 22 --trim 0 --ibdmatrix "ibdmatrixpath" --siblings "pairstoincludepath" --out "ibdfreqpath"
 python IBDaf1n.py --chr 22 --trim 0 --ibdmatrix "ibdmatrixpath" --siblings "pairstoincludepath" --out "ibdfreqpath"
 python IBDaf1s.py --chr 22 --trim 0 --ibdmatrix "ibdmatrixpath" --siblings "pairstoincludepath" --out "ibdfreqpath"
 python IBDaf2.py --chr 22 --trim 0 --ibdmatrix "ibdmatrixpath" --siblings "pairstoincludepath" --out "ibdfreqpath"
-python IBDvar0.py --chr 22 --trim 0 --ibdmatrix "ibdmatrixpath" " --siblings pairstoincludepath" --out "ibdvarpath"
+python IBDvar0.py --chr 22 --trim 0 --ibdmatrix "ibdmatrixpath" --siblings "pairstoincludepath" --out "ibdvarpath"
 python IBDvar1.py --chr 22 --trim 0 --ibdmatrix "ibdmatrixpath" --siblings "pairstoincludepath" --out "ibdvarpath"
 python IBDvar2.py --chr 22 --trim 0 --ibdmatrix "ibdmatrixpath" --siblings "pairstoincludepath" --out "ibdvarpath"
 ```
