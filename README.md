@@ -223,7 +223,7 @@ python TNTaf1s.py --chr 22 --ibdmatrix "ibdmatrixpath" --po_pairs "pairstoinclud
 python TNTvar.py --chr 22 --ibdmatrix "ibdmatrixpath" --po_pairs "pairstoincludepath" --out "ibdvarpath"
 ```
 
-## Step 3: Make the summary statistic file
+## Step 3: Make the summary statistic files
 Combines the output files from step 2 in one file.
 The script requires R and the following 5 arguments in this order:
 1) ibdfreqpath: Path to the folder with the TNT allele frequencies (output of the previous step).
@@ -251,3 +251,45 @@ This stepwise protocol results in a summary statistic file that has a name start
 9) ibd1s: Number of PO pairs for ib1smean computations (should be the same as ibd1n).
 10) ib1smean: Allele frequency for the transmitted alleles
 11) ib1diffvar: Variance of the differene between the transmitted and non-transmitted allele
+
+# Parent-offspring trios: Counting shared allele errors
+Here it is shown how the numbers of errors of inferring the shared allele of double heterozygous parent-offspring pairs are counted from data of parent-offspring trios where offspring and one parent are heterozygous while the other parent is homozygous. In particular, in this count, an "error" refers to when the shared allele, inferred from phasing information, of the double heterozygous parent-offspring pair does not match with the shared allele given the homozygous genotype of the other parent. This analysis requires the ibdmatrix file from the PO analysis above as well as a file that shows the trios (unique identifiers) among the parent-offspring pairs (--po_pairs) that were used to compute the TNT allele frequencie.
+
+## Step 1
+Counting the errors. The following arguments are needed:
+1) --chr: Chromosome
+2) --ibdmatrix: Path to the folder where the input IBD genotype matrix (output from step 1 in the PO analysis above) is stored
+3) --trios: Full path to file with PO trios (a file with columns ID1 and ID2). In this file we have one line per parent-offspring pair again. As these are trios, the identifier of each offspring will appear twice in column ID1 while each parent will appear once in the column ID2.
+4) --out: Path to the folder where you want to store the output
+
+Example:
+```
+python TNTtrioDH.py --chr 22 --ibdmatrix "ibdmatrixpath" --trios "triopairstoincludepath" --out "dherrorpath"
+```
+
+## Step 2
+Combines the output files from step 1 in one file.
+The script requires R and the following 5 arguments in this order:
+1) dherrorpath: Path to the folder with the count of errors (output from step 1 above)
+2) bim: BIM file with the SNPs that we want to include in the summary statistic file
+3) maf:  Chromosome specific files containing information about MAF computed in the group of the parents for the SNPs that are in the vcf file.
+4) summarystatisticpath: Path to where to store the summary statistic file
+
+Example:
+```
+Rscript TNTtrioDHsumstat.R "dherrorpath" "bimpath" "mafpath" "summarystatisticpath"
+```
+
+## Output file
+
+These analysis yield a summary statistic file that has a name starting with 'TNT_trio_DHerrors_' and has the following columns:
+1) SNP: SNP ID
+2) CHR: Chromosome
+3) POS: Position
+4) AF: Allele frequency of the ALT allele as given in the MAF file
+5) REF: Allele coded as 0
+6) ALT: Allele coded as 1
+7) n_DH_other1: Number of PO trios where offspring and one parent are heterozygous for the SNP in question and the other parent is homozygous for the alternative allele (allele coded as 1).
+8) n_DH_other0: Number of PO trios where offspring and one parent are heterozygous for the SNP in question and the other parent is homozygous for the reference allele (allele coded as 0).
+9) error_1: Number of instances where the shared allele for the double heterozygous pairs is wrongly coded as 1 but should be 0 according to the genotype of the homozygous parent (which is 1|1).
+10) error_0: Number of instances where the shared allele for the double heterozygous pairs is wrongly coded as 0 but should be 1 according to the genotype of the homozygous parent (which is 0|0).
