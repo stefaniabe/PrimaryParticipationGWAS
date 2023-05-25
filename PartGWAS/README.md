@@ -1,4 +1,4 @@
-# PrimaryParticipationGWAS
+# Primary participation summary statistics
 Python and R scripts to perform primary participation GWAS as in Benonisdottir and Kong (2022) (https://doi.org/10.1101/2022.02.11.480067).
 This is done by comparing IBD shared and not-shared alleles of participating first-degree relatives and is performed separately for sibling pairs and parent-offspring pairs. 
 
