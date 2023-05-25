@@ -13,5 +13,5 @@ The input parameters are as follows and in the following order:
 5) "outpath": Path to the folder where the outputs should be stored
 
 ```
-Rscript Tstatistcs.R "trim250_AF_sumstat.csv.gz" "TNT_AF_sumstat.csv.gz" "TNT_DH_sumstat.csv.gz" "hiqhqualitySNPs.txt" "outpath"
+Rscript Tstatistics.R "trim250_AF_sumstat.csv.gz" "TNT_AF_sumstat.csv.gz" "TNT_DH_sumstat.csv.gz" "hiqhqualitySNPs.txt" "outpath"
 ```
