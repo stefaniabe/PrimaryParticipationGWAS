@@ -43,7 +43,7 @@ Various files with a list of the phenotype names to include in various types of 
 
 8) **LD score regression intercepts:** <br />
 Files with LD score regression intercepts attained from performing LD score regression using GWAS summary statistics based on the same set of 
-individuals that we include in the regression analysis (see /GenCorrH2). 
+individuals that we include in the regression analysis (see [/GenCorrH2](https://github.com/stefaniabe/PrimaryParticipationGWAS/tree/main/GenCorrH2)). 
 The files should be called L2_all.txt (LD score regression intercepts based on GWAS of all individuals), 
 L2_women.txt (LD score regression intercepts based on GWAS of women) and L2_men.txt (LD score regression intercepts based on GWAS of women). 
 These should be tab seperated files and have the header "pheno" (for phenotype) and "L2" (for LD score regression intercept).
