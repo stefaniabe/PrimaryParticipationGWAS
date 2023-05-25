@@ -291,5 +291,5 @@ These analysis yield a summary statistic file that has a name starting with 'TNT
 6) ALT: Allele coded as 1
 7) n_DH_other1: Number of PO trios where offspring and one parent are heterozygous for the SNP in question and the other parent is homozygous for the alternative allele (allele coded as 1).
 8) n_DH_other0: Number of PO trios where offspring and one parent are heterozygous for the SNP in question and the other parent is homozygous for the reference allele (allele coded as 0).
-9) error_1: Number of instances where the shared allele for the double heterozygous pairs is wrongly coded as 1 but should be 0 according to the genotype of the homozygous parent (which is 1|1).
-10) error_0: Number of instances where the shared allele for the double heterozygous pairs is wrongly coded as 0 but should be 1 according to the genotype of the homozygous parent (which is 0|0).
+9) error_1: Number of instances where the shared allele for the double heterozygous pairs is wrongly coded as 1 but should be 0 according to the genotype of the homozygous parent.
+10) error_0: Number of instances where the shared allele for the double heterozygous pairs is wrongly coded as 0 but should be 1 according to the genotype of the homozygous parent.
