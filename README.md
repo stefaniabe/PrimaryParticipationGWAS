@@ -1,5 +1,5 @@
-# Reproducing analyses in *Studying the genetics of participation using footprints left on the ascertained genotypes*
-Scripts to reproduce the analyses in Benonisdottir and Kong (2022) (https://doi.org/10.1101/2022.02.11.480067). <br />
+# Scripts for the manuscript '*Studying the genetics of participation using footprints left on the ascertained genotypes*'
+Scripts to reproduce the analyses in Benonisdottir and Kong (2023), '*Studying the genetics of participation using footprints left on the ascertained genotypes*', accepted for publication at Nature Genetics. <br />
 * **/GenCorrH2**: Performing LD score regression with the program [LDSC version 1.0.1](https://github.com/bulik/ldsc) 
 to attain LD score regression intercepts, genetic correlation estimates and inputs for heritability estimates on a liability scale - *Table 2*, *Supplementary Table 2* and *Supplementary Table 3*.
 * **/PGSPheno**: Performing linear and logistic regression to examine the relationship between the primary participation polygenic score 
