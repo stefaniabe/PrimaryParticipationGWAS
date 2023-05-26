@@ -10,8 +10,7 @@ The LSR analysis included the following input files:
 These are the BSPC and WSPC T-statistics (see [/SumStatAnalysis](https://github.com/stefaniabe/PrimaryParticipationGWAS/tree/main/SumStatAnalysis)) and GWAS summary statistics from performing 'traditional' GWAS for the traits shown in Table 1. 
 The 'traditional' GWAS results were attained with [BOLT-LMM](https://alkesgroup.broadinstitute.org/BOLT-LMM/) and the P_LINREG column in the output was used as input P-value to LDSC. <br />
 The required format of the input GWAS summary statistics files is well described on the [wiki](https://github.com/bulik/ldsc/wiki/Summary-Statistics-File-Format) page of the LDSC program. 
-In the current study, the input GWAS summmary statistics had been merged with the 500,632 SNPs that were used to compute the primary participation PGS.
-They input files had the following 5 columns:
+In the current study, the input GWAS summmary statistics had been merged with the 500,632 SNPs that were used to compute the primary participation PGS and had the following 5 columns:
 ```
 SNP  A1  A2  Z  N
 ```
