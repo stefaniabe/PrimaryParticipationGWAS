@@ -9,7 +9,7 @@ The LSR analysis included the following input files:
 These are the BSPC and WSPC T-statistics (see [/SumStatAnalysis](https://github.com/stefaniabe/PrimaryParticipationGWAS/tree/main/SumStatAnalysis)) and GWAS summary statistics from performing 'traditional' GWAS for the traits shown in Table 1. 
 The 'traditional' GWAS results were attained with [BOLT-LMM](https://alkesgroup.broadinstitute.org/BOLT-LMM/) and the P_LINREG column in the output was used as input P-value to LDSC. <br />
 
-The input GWAS summary statistics for LDSC were zipped files called "phenotype.sumstats.gz". 
+The required format of the input GWAS summary statistics files is well described on the [wiki](https://github.com/bulik/ldsc/wiki/Summary-Statistics-File-Format) page of the LDSC program. The input GWAS summary statistics for LDSC were zipped files called "phenotype.sumstats.gz". 
 The statistics had been merged with the 500,632 SNPs that were used to compute the primary participation PGS.
 They input files had the following 5 columns:
 ```
@@ -17,7 +17,7 @@ SNP  A1  A2  Z  N
 ```
 with A1 being the effect allele, Z being the signed Z-score corresponding to the association and N being the sample size. 
 For categorical traits, N was equal to cases+controls. For the BSPC statistics the sample size for each SNP was the number of IBD2 pairs plus twice the number of IBD0 pairs. 
-For the WSPC statistics N was equal to 1.5 times the number of IBD1 pairs. One can use [munge_sumstats.py](https://github.com/bulik/ldsc/wiki/Summary-Statistics-File-Format) to transform various summary statistics formats to this LDSC format. <br />
+For the WSPC statistics N was equal to 1.5 times the number of IBD1 pairs. <br />
 
 2) **LD scores**: <br />
 For the current study, UKBB EUR LD scores were downloaded from https://pan.ukbb.broadinstitute.org on April 27th 2021 (Pan-UKB team, 2020).
