@@ -6,7 +6,7 @@ from pandas import DataFrame
 argParser = argparse.ArgumentParser()
 argParser.add_argument("--out", help="Path to the folder where the outputfile will be stored.")
 argParser.add_argument("--ibdmatrix", help="Path to the folder where the input IBD genotype matrix (output from a previous step) is stored.")
-argParser.add_argument("--trios", help="#Full path to file with trios to include (columns ID1 and ID2, each offspring will appear twice in column ID1 as these are trios).")
+argParser.add_argument("--trios", help="Full path to file with trios to include (columns ID1 and ID2, each offspring will appear twice in column ID1 as these are trios).")
 argParser.add_argument("--chr", help="Chromosome")
 
 args = argParser.parse_args()
