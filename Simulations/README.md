@@ -14,4 +14,4 @@ Rscript LiabilityModel.R $N $a $outpath $name $p $sim
 ```
 
 Note in the paper the simulations were repeated 500 times before the figures were made.
-If computational resources are limited one might want to simulate first many output matrices parallel (use different $name then for each run), join them in the end and then make the figures.
+If computational resources are limited one might want to simulate first many output matrices parallel (choosing a different $name for each run), join them in the end and then make the figures.
