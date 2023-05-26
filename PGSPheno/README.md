@@ -24,7 +24,7 @@ Tab seperated matrix with quantitative phenotype values. Unique identifier colum
 IID phenotype1 phenotype2 phenotype3
 ```
 Values that are missing because they are above/below the reportable range should be coded as -8888888/-9999999 in the matrix. 
-The trait educational attainment should have been mapped to years of schooling using the ISCED classification.
+In the current study, the trait educational attainment had been mapped to years of schooling using the ISCED classification.
 
 4) **Categorical phenotype data**: <br />
 
