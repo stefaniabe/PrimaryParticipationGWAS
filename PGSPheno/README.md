@@ -96,7 +96,7 @@ For the logistic/linear regression the inputs are as follows and in the followin
 3) pgsscorepath: Full path to the polygenic score file.
 4) pgs: Name of the polygenic score, for naming the output files.
 5) indpath: Full path to the file with the individuals that we want to include in the regression analysis (header with IID).
-6) ccphenopath/phenopath: List of phenotypes we want to perform logistic/linear regression for. Should correspond to the names in folder $transpath, excluding the ".txt" extension.
+6) ccphenopath/phenopath: List of phenotypes we want to perform logistic/linear regression for (no header). Should correspond to the names in folder $transpath, excluding the ".txt" extension.
 7) pcpath: Full path to the covariate matrix, (IID, Age, Sex, YOB, chip, PC1-PC40).
 8) L2path: Folder with LDSC intercept files attained from performing LD score regression using GWAS summary statistics based on the same set of individuals ($indpath). The files should be called L2_all.txt (based on all individuals), L2_women.txt (sex-specific GWAS based on only the women) and L2_men.txt (sex-specific GWAS based on only the men) and have the header "pheno" and "L2".
 9) edupath: Full path to a phenotype file with adjusted and standardised educational attainment values (see "Transforming quantitative phenotypes above").
