@@ -1,5 +1,5 @@
 # Simulations
-This script shows how we performed simulations in R (version 3.4.3) assuming a liability model to investigate, for a given SNP, allele frequencies in different groups of individuals 
+This script shows how we performed simulations in R (version 3.4.3) assuming a liability-threshold model to investigate, for a given SNP, allele frequencies in different groups of individuals 
 (participants, non-participants, individuals with a participating/non-participating sibling) and genetic segments - *Figure 4* and *Extended Data Figure 8*.
 The input parameters are as follows and in the following order:
 1) N: Number of individuals in the population
