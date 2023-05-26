@@ -17,7 +17,7 @@ SNP  A1  A2  Z  N
 ```
 with A1 being the effect allele, Z being the signed Z-score corresponding to the association and N being the sample size. 
 For categorical traits, N was equal to cases+controls. For the BSPC statistics the sample size for each SNP was the number of IBD2 pairs plus twice the number of IBD0 pairs. 
-For the WSPC statistics N was equal to 1.5 times the number of IBD1 pairs. One can use munge_sumstats.py to transform various summary statistics formats to this LDSC format (see https://github.com/bulik/ldsc). <br />
+For the WSPC statistics N was equal to 1.5 times the number of IBD1 pairs. One can use [munge_sumstats.py](https://github.com/bulik/ldsc/wiki/Summary-Statistics-File-Format) to transform various summary statistics formats to this LDSC format. <br />
 
 2) **LD scores**: <br />
 For the current study, UKBB EUR LD scores were downloaded from https://pan.ukbb.broadinstitute.org on April 27th 2021 (Pan-UKB team, 2020).
