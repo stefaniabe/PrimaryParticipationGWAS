@@ -13,7 +13,7 @@ To perform the analyses the following datafiles are required:
 #CHROM  POS   ID REF ALT QUAL FILTER INFO FORMAT        ID1           ID2      ...    IDN
 ```
 The header does not necessarily need to be in the first line. However, the line number of the header should be specified as an input variable when the scripts requiring the vcf files are run. 
-E.g. when converting the phased bgen files available in the UKBB data release 2 to vcf format with QCTOOL 2.0.1 (see https://www.well.ox.ac.uk/~gav/qctool_v2/), one gets a vcf file with the header in the fourth line and hence the headerline input should be 4. Columns ID1-IDN are the unique identifiers of the N individuals that constitue the first degree relatives. ALT stands for the allele coded as 1. The SNP IDs (the column called ID) need to be unique per chromosome.
+E.g. when converting the phased bgen files available in the UKBB data release 2 to vcf format with [QCTOOL](https://www.well.ox.ac.uk/~gav/qctool_v2/) 2.0.1, one gets a vcf file with the header in the fourth line and hence the headerline input should be 4. Columns ID1-IDN are the unique identifiers of the N individuals that constitue the first degree relatives. ALT stands for the allele coded as 1. The SNP IDs (the column called ID) need to be unique per chromosome.
 For the individual level columns (ID1-IDN), only the first three values in each field are used, and they should be either 0|0, 0|1, 1|0 or 1|1. E.g. a line in the input file could be as follows:
 ```
  1   7527219 SNP1 G   A   .     .     .    GT:GP    0|1,1,0,0,1  0|1,1,0,0,1   ... 1|1,0,1,0,1
@@ -30,7 +30,7 @@ CHR SNP CM BP A1 A2
 Given that the purpose of this file is to ensure that we are always working with the same SNPs throughout the steps and to order the SNPs by BP position, CM column can be populated with zeros. The SNP IDs (the SNP column) need to be unique per chromosome.
 
 ## Sibling pair specific files
-3) The IBD segments of the sibling pairs as inferred by the program snipar (https://github.com/AlexTISYoung/snipar, see Young et. al (2022) https://doi.org/10.1038/s41588-022-01085-0).
+3) The IBD segments of the sibling pairs as inferred by the program [snipar](https://github.com/AlexTISYoung/snipar) (see Young et. al (2022) https://doi.org/10.1038/s41588-022-01085-0).
 These should be chromosome specific, tab separated files which are named chr_*.ibd.segments.gz and have the following header:
 ```
 ID1 ID2 IBDType Chr start_coordinate stop_coordinate startSNP stopSNP length
@@ -198,7 +198,7 @@ The following 7 arguments are required:
 2) --bim: Path to the folder where the bim-files with the SNPs in the vcf files are stored (the chromosome specific files should be named chr*.bim)
 3) --vcf: Path to the folder with the chromosome specific zipped VCF with the phased genotypes of the parent-offspring pairs (compressed files called chr*.vcf.gz)
 4) --maf: Path to the folder with the files that shows minor allele frequency (MAF) for the SNPs in the vcf files. The MAF is only used for imputation when it is impossible to infer the transmitted and non-transmitted allele for double heterozygous parent-offspring pairs. This should happen rarely, especially with a dense set of SNPs.
-5) --po_pairs:Path to a file with the parent-offspring pairs you want to include in your allele frequency computations. The file should be tab delimieted, have three columns and have the header "fid ID1 ID2". Each line corresponds to one parent-offspring pair.
+5) --po_pairs: Path to a file with the parent-offspring pairs you want to include in your allele frequency computations. The file should be tab delimieted, have three columns and have the header "fid ID1 ID2". Each line corresponds to one parent-offspring pair.
 6) --headerline: Line number of the header (column names) in the vcf files.
 7) --out: Path to the folder where you want to store the output file
 
