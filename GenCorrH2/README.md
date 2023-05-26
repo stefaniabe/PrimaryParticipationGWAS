@@ -10,7 +10,7 @@ These are the BSPC and WSPC T-statistics (see [/SumStatAnalysis](https://github.
 The 'traditional' GWAS results were attained with [BOLT-LMM](https://alkesgroup.broadinstitute.org/BOLT-LMM/) and the P_LINREG column in the output was used as input P-value to LDSC. <br />
 
 The input GWAS summary statistics for LDSC were zipped files called "phenotype.sumstats.gz". 
-The statistics had been merged on alleles with the 500,632 SNPs that were used to compute the primary participation PGS.
+The statistics had been merged with the 500,632 SNPs that were used to compute the primary participation PGS.
 They input files had the following 5 columns:
 ```
 SNP  A1  A2  Z  N
