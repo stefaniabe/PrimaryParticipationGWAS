@@ -1,5 +1,5 @@
 args = commandArgs(trailingOnly = TRUE)
-#path to the folder with all the phenotype lists, the lists should be called "phenotype.txt" and have no header and two columns, IID and phenotype
+#path to the folder with all the phenotype lists, the lists should be called "phenotype.txt" and have no header and two columns, IID and phenotype value
 path=paste(args[1])
 #output path
 outpath=paste(args[2])
@@ -8,15 +8,15 @@ outpath=paste(args[2])
 pgspath=paste(args[3])
 #Name of pgs for output files
 pgs=paste(args[4])
-#full path to individuals to include, tab seperated files, needs to have column IID or eid
+#full path to individuals to include, tab seperated file, needs to have column IID or eid
 indpath=paste(args[5])
-#full path to file with a list of phenotypes to include (no header), has two two columns IID and phenotype value
+#full path to file with a list of phenotypes to include in the analysis (no header)
 phenopath=paste(args[6])
 #full path to a file with information about chip-type and sex
 #Needs to have columns IID, sex and chip
 pcpath=paste(args[7])
-#Path the folder with files with LD score regression intercept
-#Need to be named L2_all.txt, L2_women.txt and L2_men.txt and include columns with names pheno and L2 (the corresponding LD score regression intercept).
+#Path to the folder with files with LD score regression intercept
+#The files need to be named L2_all.txt, L2_women.txt and L2_men.txt and include columns with names pheno and L2 (the corresponding LD score regression intercept).
 L2path=paste(args[8])
 #path to educational attainment phenotype list, should have two columns (no header) with IID and phenotype
 edupath=paste(args[9])
@@ -54,13 +54,13 @@ P$chip <- as.factor(P$chip)
 
 P <- P[which(P$IID %in% d$IID),]
 
-#Output - not adjusted for pheno
+#Output - not adjusted for EDU
 PRTc1 <- as.data.frame(matrix(ncol=5,nrow=(nrow(phenos))))
 names(PRTc1) <- c("pheno","T","beta","P","N")
 PRTc1$pheno <- phenos$PP
 PRTc1$pgs <- paste(pgs)
 
-#Output - adjsuted for pheno
+#Output - adjsuted for EDU
 PRTc2 <- as.data.frame(matrix(ncol=5,nrow=(nrow(phenos))))
 names(PRTc2) <- c("pheno","T","beta","P","N")
 PRTc2$pheno <- phenos$PP
@@ -72,7 +72,7 @@ P <- merge(P,EDU,by="IID",all.x=TRUE)
 
 P$PGS <- (P$SCORESUM-mean(P$SCORESUM))/sd(P$SCORESUM)
 
-##Want to do this for all, women and men
+#Want to do this for all, women and men
 sex <- c("all","women","men")
 
 for(j in 1:length(sex))
