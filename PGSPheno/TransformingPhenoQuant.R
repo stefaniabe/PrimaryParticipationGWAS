@@ -1,18 +1,18 @@
 args = commandArgs(trailingOnly = TRUE)
-#path to the folder with a matrix with raw phenotype values, should have columns "IID" and then the other column names should be the phenoytpes
+#path to the folder with a matrix with raw phenotype values, should have columns "IID" and then the other column names should be the phenotypes
 datapath=paste(args[1])
 #output path, path to a folder
 path=paste(args[2],"/",sep="")
-#full path to individuals to include, tab seperated files, needs to have column IID or eid
+#full path to individuals to include, tab seperated file, needs to have column IID or eid
 indpath=paste(args[3])
-#full path to a file with information about chip-type and sex
+#full path to a file with covariates
 #Needs to have columns IID, sex, Age, YOB, PC1-PC40 and chip
 pcpath=paste(args[4])
-#phenotypes we want to transform, need to match to the columnheaders in the phenotype matrix
+#List with phenotypes we want to transform, need to match to the columnheaders in the phenotype matrix
 phenopath=paste(args[5])
 #Phenotypes that we want to RINT and adjust for Age up to the order of 3 and YOB up to the order of 1, column name ="pheno"
 phenopathage=paste(args[6])
-#Phenotypes we do not want to RINT (just standardise) and use YOB up to the order of 3 and Age up to the order of 1 (this is just EA in the paper)
+#Phenotypes we do not want to RINT (just standardise) and use YOB up to the order of 3 and Age up to the order of 1
 phenonotrank=paste(args[7])
 #Phenotypes that we want to RINT and adjust for YOB up to the order of 3 and Age up to the order of 1, column name ="pheno"
 phenopathyob=paste(args[8])
@@ -42,13 +42,13 @@ y[W] <- z
 return(y)
 }
 
-#list of individuals to include in the transformed phenotype list
+#list of individuals to include in the transformed phenotype lists
 fam <- read.table(indpath,header=TRUE)
 names(fam) <- gsub("eid","IID",names(fam))
 
 ####################################
 #Read in matrix with information about phenotypic measurements (one column for each phenotype), 
-#Note, for blood biomarkers, in this matrix, missing values due to reportability range should be coded as -7777777, -8888888 or -9999999.
+#Note, in this matrix, missing values due to reportability range should be coded as -7777777, -8888888 or -9999999.
 M <- read.csv(datapath,header=TRUE,nrows=10)
 classes <- sapply(M,class)
 M <- read.csv(datapath,header=TRUE,colClasses=classes)
@@ -64,7 +64,7 @@ M <- merge(M,PC,by="IID")
 #Read in vector with phenotype names that I want to transform (could be a subset of the ones in table M)
 #Needs to have a header with column name "pheno"
 phenos=read.table(phenopath,header=TRUE)
-#Want to count how often per blood biomarker we have missing values due to reportability range
+#Want to count how often per phenotype we have missing values due to reportability range
 dm <- as.data.frame(matrix(nrow=length(phenos$pheno),ncol=2))
 names(dm) <- c("pheno","low")
 
@@ -108,7 +108,7 @@ if(length(dl2>0)){D <- DD1[DD1$sex!=names(dl2),]}else{D<-DD1}
 k <- which(colnames(D)==phs)
 D$y <- D[,k]
 D$y <- as.numeric(as.character(D$y))
-###Impute "below reportable range" (-9999999) and "above reportable range" (-8888888) values for the biomarkers
+#Impute "below reportable range" (-9999999) and "above reportable range" (-8888888) values
 miny <- min(D[D$y> -7777777,]$y,na.rm=TRUE)-0.001
 maxy <- max(D[D$y> -7777777,]$y,na.rm=TRUE)+0.001
 D$y <- ifelse(D$y=="-9999999",miny,ifelse(D$y=="-8888888",maxy,ifelse(D$y=="-7777777",NA,D$y)))
@@ -146,7 +146,7 @@ write.table(d,paste(path,phs,"_onesex_age3_PC_rank_",date,".txt",sep=""),row.nam
 }
 }
 
-####Phenotypes we want to use ties=random. This group only includes blood biomarkers so we know that we want to adjust for Age up to the order of 3 and YOB up to the order of 1
+####Phenotypes we want to use ties=random and adjust for Age up to the order of 3 and YOB up to the order of 1
 if(length(Pheno2)>0){
 for (i in 1:length(Pheno2))
 {
