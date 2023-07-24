@@ -16,7 +16,7 @@ The header does not necessarily need to be in the first line. However, the line 
 E.g. when converting the phased bgen files available in the UKBB data release 2 to vcf format with [QCTOOL](https://www.well.ox.ac.uk/~gav/qctool_v2/) 2.0.1, one gets a vcf file with the header in the fourth line and hence the headerline input should be 4. Columns ID1-IDN are the unique identifiers of the N individuals that constitue the first degree relatives. ALT stands for the allele coded as 1. The SNP IDs (the column called ID) need to be unique per chromosome.
 For the individual level columns (ID1-IDN), only the first three values in each field are used, and they should be either 0|0, 0|1, 1|0 or 1|1. E.g. a line in the input file could be as follows:
 ```
- 1   7527219 SNP1 G   A   .     .     .    GT:GP    0|1,1,0,0,1  0|1,1,0,0,1   ... 1|1,0,1,0,1
+ 1   7527219 SNP1 G   A   .     .     .    GT:GP    0|1:1,0,0,1  0|1:1,0,0,1   ... 1|1:0,1,0,1
 ```
 but the script would interpret it as:
 ```
