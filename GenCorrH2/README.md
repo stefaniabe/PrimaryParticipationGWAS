@@ -39,7 +39,7 @@ The inputs are as follows and in the following order:
 4) outpath: path to where to store the output, folder and prefix
 
 ```
-bash rg_constrain.sh $insumstat1 $insumstat2 $ldpath $outpath
+bash gencor.sh $insumstat1 $insumstat2 $ldpath $outpath
 ```
 ## Heritability and LD score regression intercepts
 Heritablity was estimated for BSPC and the secondary participation traits with LDSC and 
