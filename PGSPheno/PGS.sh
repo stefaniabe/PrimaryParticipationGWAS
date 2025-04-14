@@ -11,4 +11,4 @@ pgs=$4
 #Path to plink
 plink=plink/1.90b2n/plink
 
-$plink --bfile $bedata --score $pgsfoldergit header sum  --out $pgsout"/"$pgs
+$plink --bfile $bedata --score $pgsfolder header sum  --out $pgsout"/"$pgs
